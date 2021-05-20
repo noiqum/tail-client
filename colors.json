@@ -1,0 +1,12 @@
+{
+    "background":"#0f0e17",
+    "headline":"#fffffe",
+    "button":"#ff8906",
+    "button-text":"#fffffe",
+    "paragraph":"#a7a9be",
+    "stroke":"#aaa",
+    "main":"#fffffe",
+    "highlight":"#ff8906",
+    "secondary":"#f25f4c",
+    "tertiary":"#e53170"
+}
