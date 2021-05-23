@@ -9,13 +9,15 @@
               <label for="email">
                   Email
                   <input v-model="email" type="email" name="email" id="email">
+                  <small>{{error.emailError}}</small>
               </label>
               <label for="password">
                   Password
                   <input v-model="password" type="password" name="password" id="password">
+                  <small>{{error.passwordError}}</small>
                   </label>
                   <div class="buttons">
-                     <span class="link">Wanna register?</span> <button>Log in</button>
+                     <span class="link">Wanna register?</span> <button @click="submitHandler">Log in</button>
                   </div>
           </form>
       </div>
@@ -28,11 +30,29 @@ name:'Auth',
 data(){
     return {
         email:'',
-        password:''
+        password:'',
+        error:{
+            emailError:null,
+            passwordError:null
+        }
     }
 },
 
-
+methods:{
+    submitHandler(event){
+        event.preventDefault()
+        const {emailError,passwordError}=this.$data.error;
+        if(this.email.length === 0){
+           this.error.emailError = 'Email is required'
+        }
+        if(this.password.length === 0){
+           this.error.passwordError='Password is required'
+        }
+        if(!emailError && !passwordError){
+            console.log('submit')
+        }
+    }
+}
 }
 
 </script>
@@ -49,6 +69,7 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 input{
     padding: 0.75rem 1rem;
@@ -56,10 +77,12 @@ input{
     outline: none;
     border: none;
     border: 0.5px solid gray;
+    font-size: 1.4rem;
 }
 label{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 h2{
     font-size: 2.7rem;
@@ -67,6 +90,11 @@ h2{
 .link{
     text-decoration: underline;
     cursor: pointer;
+}
+small{
+    color: orangered;
+    align-self: flex-end;
+    margin-top: 5px;
 }
 .container{
     display: flex;
@@ -89,6 +117,11 @@ h2{
     font-size: 1.3rem;
     padding: 0.5rem 2rem;
     cursor: pointer;
+    background: black;
+    color: white;
+}
+.buttons button:hover{
+    opacity: 0.75;
 }
 .section{
     display: flex;

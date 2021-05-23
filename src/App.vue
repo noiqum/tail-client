@@ -1,22 +1,26 @@
 <template>
+<div>
   
-  <Auth></Auth>
+  <router-view></router-view>
+</div>
+
+  
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-import Auth from './views/Auth'
+
 export default {
   name: 'App',
-  components: {
-   // HelloWorld
-  Auth
-  }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #app {
   box-sizing: border-box;
   margin: 0;
