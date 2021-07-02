@@ -4,7 +4,7 @@
           <img src="../assets/login.png" alt="login">
       </div>
       <div class="section">
-          <form >
+          <form  @submit.prevent="submitHandler">
               <h2>Let's Start</h2>
               <label for="email">
                   Email
@@ -17,7 +17,7 @@
                   <small>{{error.passwordError}}</small>
                   </label>
                   <div class="buttons">
-                     <span class="link">Wanna register?</span> <button @click="submitHandler">Log in</button>
+                     <span class="link">Wanna register?</span> <button type="submit">Log in</button>
                   </div>
           </form>
       </div>
